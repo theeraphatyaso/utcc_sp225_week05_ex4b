@@ -41,7 +41,8 @@
 				if (validate(t, u)) {
 					let tempData = conversion(t, u);
 					
-					alert("Temperature is " + tempData.temperature + " in " + tempData.unit);
+					// alert("Temperature is " + tempData.temperature + " in " + tempData.unit);
+					document.getElementById("result").innerHTML = "Temperature is " + tempData.temperature + " in " + tempData.unit;
 				}
 			});
 
