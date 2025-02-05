@@ -39,21 +39,9 @@
 				var u = $('#unit').val();
 				
 				if (validate(t, u)) {
-					var t1;
-					var u1;
+					let tempData = conversion(t, u);
 					
-					if(u == "F"){
-							t1 = t * (9/5) + 32;
-							u1 = "Fahrenheit";
-					}else if(u == "K"){
-							t1 =  t + 273.15;
-							u1 = "Réaumur";
-					}else if(u == "R"){
-							t1 = t * (4/5);
-							u1 = "Kelvin";
-					}
-					
-					alert("Temperature is "+t1+" in "+u1);
+					alert("Temperature is " + tempData.temperature + " in " + tempData.unit);
 				}
 			});
 
@@ -70,6 +58,24 @@
 						isValidate = false;
 				}
 				return isValidate;
+			}
+
+			function conversion(t, u) {
+				var t1;
+				var u1;
+				
+				if(u == "F"){
+						t1 = t * (9/5) + 32;
+						u1 = "Fahrenheit";
+				}else if(u == "K"){
+						t1 =  t + 273.15;
+						u1 = "Réaumur";
+				}else if(u == "R"){
+						t1 = t * (4/5);
+						u1 = "Kelvin";
+				}
+
+				return {temperature: t1, unit: u1};
 			}
 		});
 	</script>
